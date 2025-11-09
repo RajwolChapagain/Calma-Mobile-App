@@ -2,7 +2,7 @@
   "image": "alpine:latest",
   "features": {
     "ghcr.io/devcontainers/features/nix:1": {
-      "multiuser": false,
+      "multiUser": false,
       "extraNixConfig": "experimental-features = nix-command flakes,sandbox = true"
     }
   },
