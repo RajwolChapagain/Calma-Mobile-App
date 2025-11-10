@@ -2,5 +2,8 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
+  "containerEnv": {
+    "NiX_REMOTE": "local"
+  },
   "postCreateCommand": "nix develop"
 }
