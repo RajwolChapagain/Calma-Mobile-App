@@ -2,5 +2,5 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "postCreateCommand": "nix develop"
+  "postCreateCommand": "NIX_REMOTE=local nix develop"
 }
