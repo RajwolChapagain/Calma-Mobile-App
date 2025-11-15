@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb2acwstl68ff"]
+
+[ext_resource type="Script" uid="uid://dpsi6joi1kqdx" path="res://counter.gd" id="1_wcxvy"]
+
+[node name="Counter" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0"
+script = ExtResource("1_wcxvy")
