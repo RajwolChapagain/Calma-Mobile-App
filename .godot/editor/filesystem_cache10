@@ -1,8 +1,8 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1763174281
-counter.gd::GDScript::8249795095512101293::1763174142::0::1::::<>Label<><>0<>0<><>::
-counter.tscn::PackedScene::4898773166171070395::1763174142::0::1::::<><><>0<>0<><>::uid://dpsi6joi1kqdx::::res://counter.gd
-icon.svg::CompressedTexture2D::1790880795757653::1763174142::1763174282::1::::<><><>0<>0<>1d558fff71561543e2cf7e0d300c3350<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-player.gd::GDScript::903031275880114122::1763174142::0::1::::<>Sprite2D<><>0<>0<><>::
-player.tscn::PackedScene::5516231605013676354::1763174142::0::1::::<><><>0<>0<><>::uid://4q335xxs2p::::res://icon.svg<>uid://m4o176d7nlaw::::res://player.gd
-world.tscn::PackedScene::5476033528914687067::1763174142::0::1::::<><><>0<>0<><>::uid://ckudr8chj1kgo::::res://player.tscn<>uid://cb2acwstl68ff::::res://counter.tscn
+::res://::1763736672
+counter.gd::GDScript::8249795095512101293::1763736583::0::1::::<>Label<><>0<>0<><>::
+counter.tscn::PackedScene::4898773166171070395::1763736583::0::1::::<><><>0<>0<><>::uid://dpsi6joi1kqdx::::res://counter.gd
+icon.svg::CompressedTexture2D::1790880795757653::1763736583::1763736675::1::::<><><>0<>0<>1d558fff71561543e2cf7e0d300c3350<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+player.gd::GDScript::903031275880114122::1763736583::0::1::::<>Sprite2D<><>0<>0<><>::
+player.tscn::PackedScene::5516231605013676354::1763736583::0::1::::<><><>0<>0<><>::uid://4q335xxs2p::::res://icon.svg<>uid://m4o176d7nlaw::::res://player.gd
+world.tscn::PackedScene::5476033528914687067::1763736583::0::1::::<><><>0<>0<><>::uid://ckudr8chj1kgo::::res://player.tscn<>uid://cb2acwstl68ff::::res://counter.tscn
