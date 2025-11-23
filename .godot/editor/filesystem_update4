@@ -9,3 +9,5 @@ res://Minigames/ColorSwitch/scripts/ball.gd
 res://Shop/Scenes/shop_item.tscn
 res://Shop/Scenes/shop.tscn
 res://Shop/Scenes/shop_item.gd
+res://Calendar/Scripts/course.gd
+res://Calendar/Scripts/schedule_parser.gd
