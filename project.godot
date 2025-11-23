@@ -11,5 +11,5 @@ config_version=5
 [application]
 
 config/name="ColorSwitchCollisionFixed"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="uid://br8ros8c5s5ev"
 config/features=PackedStringArray("4.5")

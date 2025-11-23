@@ -1,2 +1,3 @@
 res://Minigames/ColorSwitch/Scenes/Main.tscn
 res://Minigames/ColorSwitch/scripts/main.gd
+res://Global/Scenes/world.tscn
