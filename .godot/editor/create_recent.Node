@@ -1,4 +1,10 @@
+Sprite2D
+MarginContainer
+RichTextLabel
+CenterContainer
 CanvasLayer
-Node2D
-Button
+PanelContainer
 HBoxContainer
+ScrollContainer
+Button
+Node2D

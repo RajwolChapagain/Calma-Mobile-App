@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c3b8tc7g2ubuk"]
+
+[node name="Shop" type="Node2D"]
+
+[node name="AvatarRow1" type="ScrollContainer" parent="."]
+offset_right = 180.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AvatarRow1"]
+layout_mode = 2
