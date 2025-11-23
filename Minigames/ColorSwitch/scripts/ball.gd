@@ -22,7 +22,7 @@ func set_color():
 
 func _physics_process(d):
 	velocity.y += G*d
-	if Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		velocity.y = J
 	move_and_slide()
 

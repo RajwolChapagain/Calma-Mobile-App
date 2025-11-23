@@ -5,3 +5,4 @@ res://Global/Scenes/panel_controller.tscn
 res://Global/Themes/PanelControlButtonTheme.tres
 res://Global/Scenes/button.gd
 res://Global/Scenes/panel_button.gd
+res://Minigames/ColorSwitch/scripts/ball.gd
