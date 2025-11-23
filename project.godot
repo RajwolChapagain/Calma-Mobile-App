@@ -14,6 +14,10 @@ config/name="ColorSwitchCollisionFixed"
 run/main_scene="uid://br8ros8c5s5ev"
 config/features=PackedStringArray("4.5")
 
+config/name="Dino Ball Game"
+run/main_scene="res://scenes/Main.tscn"
+config/features=PackedStringArray("4.5")
+
 [display]
 
 window/size/viewport_width=180
