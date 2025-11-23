@@ -1,3 +1,7 @@
 res://Minigames/ColorSwitch/Scenes/Main.tscn
 res://Minigames/ColorSwitch/scripts/main.gd
 res://Global/Scenes/world.tscn
+res://Global/Scenes/panel_controller.tscn
+res://Global/Themes/PanelControlButtonTheme.tres
+res://Global/Scenes/button.gd
+res://Global/Scenes/panel_button.gd
