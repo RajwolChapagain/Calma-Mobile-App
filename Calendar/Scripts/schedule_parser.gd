@@ -33,11 +33,9 @@ static func get_course_from_line(line: String) -> Course:
 	var weekdays: Array[Time.Weekday] = []
 	for day: String in items[7].split(' '):
 		weekdays.append(get_weekday_from_char(day))
-		if day not in ['M', 'T', 'W', 'R', 'F']:
-			print(line)
 			
-	var start_time: String = items[8]
-	var end_time: String = items[9]
+	var start_time: String = get_24_hr_time_format(items[8])
+	var end_time: String = get_24_hr_time_format(items[9])
 	
 	return Course.new(title, start_date, end_date, weekdays, start_time, end_time)
 
@@ -55,3 +53,17 @@ static func get_weekday_from_char(c: String) -> Time.Weekday:
 	else:
 		printerr('Error: Class day outside range Monday-Friday')
 		return Time.WEEKDAY_SATURDAY
+
+# Precondition: time is in the format HH:MM AM/PM
+static func get_24_hr_time_format(time: String) -> String:
+	time = time.strip_edges()
+	var am_or_pm = time.substr(len(time) - 2, 2)
+	var hour: int = int(time.substr(0, time.find(':')))
+	var minute = time.substr(time.find(':') + 1, 2)
+	
+	hour %= 12
+	
+	if am_or_pm == 'PM':
+		hour += 12
+		
+	return '%s:%s' % [hour, minute] 
