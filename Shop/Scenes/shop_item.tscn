@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://da4xp8j30hdd2"]
+[gd_scene load_steps=3 format=3 uid="uid://da4xp8j30hdd2"]
 
 [ext_resource type="Script" uid="uid://yn6uwkkoal3f" path="res://Shop/Scenes/shop_item.gd" id="1_qcmrj"]
+[ext_resource type="Texture2D" uid="uid://crxsa4hrektgi" path="res://icon.svg" id="2_w788f"]
 
 [node name="ShopItem" type="Button"]
 custom_minimum_size = Vector2(32, 32)
@@ -29,15 +30,26 @@ grow_vertical = 2
 custom_minimum_size = Vector2(140, 140)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CenterContainer/ToolTip"]
+[node name="VSplitContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/ToolTip"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CenterContainer/ToolTip/VSplitContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_w788f")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CenterContainer/ToolTip/VSplitContainer"]
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/CenterContainer/ToolTip/MarginContainer"]
-
-[node name="Description" type="RichTextLabel" parent="CanvasLayer/CenterContainer/ToolTip/MarginContainer"]
+[node name="Description" type="RichTextLabel" parent="CanvasLayer/CenterContainer/ToolTip/VSplitContainer/MarginContainer"]
 layout_mode = 2
 text = "Test Text"
