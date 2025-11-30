@@ -1,15 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://da4xp8j30hdd2"]
+[gd_scene load_steps=4 format=3 uid="uid://da4xp8j30hdd2"]
 
 [ext_resource type="Script" uid="uid://yn6uwkkoal3f" path="res://Shop/Scenes/shop_item.gd" id="1_qcmrj"]
 [ext_resource type="Texture2D" uid="uid://crxsa4hrektgi" path="res://icon.svg" id="2_w788f"]
+[ext_resource type="Texture2D" uid="uid://b4lo57emg3105" path="res://Shop/Assets/Placeholders/P X Button.png" id="3_6vuda"]
 
-[node name="ShopItem" type="Button"]
+[node name="ShopItem" type="Button" node_paths=PackedStringArray("toolTipIcon", "toolDescNode")]
 custom_minimum_size = Vector2(32, 32)
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+icon = ExtResource("2_w788f")
+icon_alignment = 1
+expand_icon = true
 script = ExtResource("1_qcmrj")
+toolTipIcon = NodePath("CanvasLayer/CenterContainer/ToolTip/VSplitContainer/ToolTipIcon")
+toolDescNode = NodePath("CanvasLayer/CenterContainer/ToolTip/VSplitContainer/MarginContainer/Description")
+shop_icon = ExtResource("2_w788f")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -33,12 +42,11 @@ layout_mode = 2
 [node name="VSplitContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/ToolTip"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CenterContainer/ToolTip/VSplitContainer"]
+[node name="ToolTipIcon" type="TextureRect" parent="CanvasLayer/CenterContainer/ToolTip/VSplitContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("2_w788f")
 expand_mode = 1
 stretch_mode = 5
 
@@ -53,3 +61,13 @@ theme_override_constants/margin_bottom = 5
 [node name="Description" type="RichTextLabel" parent="CanvasLayer/CenterContainer/ToolTip/VSplitContainer/MarginContainer"]
 layout_mode = 2
 text = "Test Text"
+
+[node name="CloseButton" type="Button" parent="CanvasLayer/CenterContainer/ToolTip"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+icon = ExtResource("3_6vuda")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_down" from="CanvasLayer/CenterContainer/ToolTip/CloseButton" to="." method="_on_close_button_button_down"]

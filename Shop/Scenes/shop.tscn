@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://c3b8tc7g2ubuk"]
+[gd_scene load_steps=2 format=3 uid="uid://c3b8tc7g2ubuk"]
+
+[ext_resource type="PackedScene" uid="uid://da4xp8j30hdd2" path="res://Shop/Scenes/shop_item.tscn" id="1_71320"]
 
 [node name="Shop" type="Node2D"]
 
@@ -7,4 +9,7 @@ offset_right = 180.0
 offset_bottom = 40.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="AvatarRow1"]
+layout_mode = 2
+
+[node name="ShopItem" parent="AvatarRow1/HBoxContainer" instance=ExtResource("1_71320")]
 layout_mode = 2

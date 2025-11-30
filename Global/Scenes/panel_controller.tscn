@@ -45,7 +45,8 @@ theme = ExtResource("1_ox1g1")
 text = "Shop"
 expand_icon = true
 script = ExtResource("2_3qwl3")
+panel = "res://Shop/Scenes/shop.tscn"
 
 [connection signal="button_down" from="HBoxContainer/PanelButtonGame" to="HBoxContainer/PanelButtonGame" method="switchScene"]
-[connection signal="button_down" from="HBoxContainer/PanelButtonCal" to="HBoxContainer/PanelButtonGame" method="switchScene"]
-[connection signal="button_down" from="HBoxContainer/PanelButtonShop" to="HBoxContainer/PanelButtonGame" method="switchScene"]
+[connection signal="button_down" from="HBoxContainer/PanelButtonCal" to="HBoxContainer/PanelButtonCal" method="switchScene"]
+[connection signal="button_down" from="HBoxContainer/PanelButtonShop" to="HBoxContainer/PanelButtonShop" method="switchScene"]
