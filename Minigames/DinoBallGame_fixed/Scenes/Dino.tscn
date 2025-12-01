@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5g6sv5nc2itw"]
+
+[ext_resource type="Script" uid="uid://bjo1utmda2nv5" path="res://Minigames/DinoBallGame_fixed/Scripts/dino.gd" id="1"]
+
+[sub_resource type="CircleShape2D" id="1"]
+radius = 20.0
+
+[node name="Dino" type="CharacterBody2D"]
+position = Vector2(-200, 240)
+script = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
