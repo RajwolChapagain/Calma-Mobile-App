@@ -28,13 +28,25 @@ func _ready():
 	toolTipIcon.texture = shop_icon
 	icon = shop_icon
 	toolDescNode.text = desc
+	if bought:
+		$CanvasLayer/CenterContainer/ToolTip/VSplitContainer/BuyEqButton.icon = "res://Shop/Assets/Placeholders/Equip Button PH.png"
 #Pressing button only brings up tool tip
 
 
 
 func _on_button_down():
 	#emit some signal for button down to hide the other tool tips
+	print("test")
 	$CanvasLayer.visible = true
 
 func _on_close_button_button_down():
 	$CanvasLayer.visible = false
+
+func _on_buy_eq_button_button_down() -> void:
+	if !bought:
+		if Utils.coins >= cost:
+			Utils.coins -= cost
+			$CanvasLayer/CenterContainer/ToolTip/VSplitContainer/BuyEqButton.icon = load("res://Shop/Assets/Placeholders/Equip Button PH.png")
+	else:
+		#equip functionality here
+		pass
