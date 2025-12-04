@@ -1,7 +1,7 @@
 class_name ScheduleImporter extends Control
 
-@export_dir var SAVED_COURSES_DIRECTORY: String
-	
+const SAVE_DIRECTORY_NAME: String = 'SavedCourses'
+
 func _on_popup_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		%ImportPanel.visible = true
@@ -15,5 +15,9 @@ func _on_import_button_pressed() -> void:
 	_on_popup_button_toggled(%PopupButton.button_pressed)
 	
 func save_courses_to_disk(courses: Array[Course]) -> void:
+	var save_directory = 'user://%s' % SAVE_DIRECTORY_NAME
+	if not DirAccess.dir_exists_absolute(save_directory):
+		DirAccess.make_dir_absolute(save_directory)
+
 	for course in courses:
-		ResourceSaver.save(course, SAVED_COURSES_DIRECTORY + '/' + course.title + '.tres')
+		ResourceSaver.save(course, save_directory + '/' + course.title + '.tres')
