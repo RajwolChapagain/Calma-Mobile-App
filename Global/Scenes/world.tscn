@@ -15,4 +15,4 @@ anchor_bottom = 0.5
 offset_top = -2.0
 offset_bottom = -2.0
 
-[node name="ActiveScene" type="Node2D" parent="."]
+[node name="ActiveScene" type="Node" parent="."]

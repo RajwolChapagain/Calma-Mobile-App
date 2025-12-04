@@ -1,6 +1,6 @@
 extends Button
 
-@onready var scene_container:Node2D = $"../../../../ActiveScene"
+@onready var scene_container:Node = $"../../../../ActiveScene"
 @export var panel:String = "res://Minigames/ColorSwitch/Scenes/Main.tscn"
 
 #Add smooth screen transition later

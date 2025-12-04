@@ -6,7 +6,7 @@ static func get_courses(schedule_text: String) -> Array[Course]:
 	var course_line_follows = false
 	for line in schedule_text.split('\n'):
 		if course_line_follows and not line.strip_edges().is_empty():
-			var course: Course = get_course_from_line(line)
+			var course: Course = _get_course_from_line(line)
 			if course != null:
 				parsed_courses.append(course)
 			
@@ -17,7 +17,7 @@ static func get_courses(schedule_text: String) -> Array[Course]:
 	
 	return parsed_courses
 	
-static func get_course_from_line(line: String) -> Course:
+static func _get_course_from_line(line: String) -> Course:
 	var items = line.split('\t')
 	
 	var days: String = items[7]
@@ -32,14 +32,14 @@ static func get_course_from_line(line: String) -> Course:
 	var end_date: String = items[6]
 	var weekdays: Array[Time.Weekday] = []
 	for day: String in items[7].split(' '):
-		weekdays.append(get_weekday_from_char(day))
+		weekdays.append(_get_weekday_from_char(day))
 			
-	var start_time: String = get_24_hr_time_format(items[8])
-	var end_time: String = get_24_hr_time_format(items[9])
+	var start_time: String = _get_24_hr_time_format(items[8])
+	var end_time: String = _get_24_hr_time_format(items[9])
 	
 	return Course.new(title, start_date, end_date, weekdays, start_time, end_time)
 
-static func get_weekday_from_char(c: String) -> Time.Weekday:
+static func _get_weekday_from_char(c: String) -> Time.Weekday:
 	if c == 'M':
 		return Time.Weekday.WEEKDAY_MONDAY
 	elif c == 'T':
@@ -55,7 +55,7 @@ static func get_weekday_from_char(c: String) -> Time.Weekday:
 		return Time.WEEKDAY_SATURDAY
 
 # Precondition: time is in the format HH:MM AM/PM
-static func get_24_hr_time_format(time: String) -> String:
+static func _get_24_hr_time_format(time: String) -> String:
 	time = time.strip_edges()
 	var am_or_pm = time.substr(len(time) - 2, 2)
 	var hour: int = int(time.substr(0, time.find(':')))
