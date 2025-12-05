@@ -32,11 +32,12 @@ func _ready():
 		$CanvasLayer/CenterContainer/ToolTip/VSplitContainer/BuyEqButton.icon = "res://Shop/Assets/Placeholders/Equip Button PH.png"
 #Pressing button only brings up tool tip
 
-
+#Make a script to add to any gui element that I can just attatch when needed
+#The script will just connect a method to change the theme of the element to a signal
+#from either Utils or shop (Probably Utils)
 
 func _on_button_down():
 	#emit some signal for button down to hide the other tool tips
-	print("test")
 	$CanvasLayer.visible = true
 
 func _on_close_button_button_down():
