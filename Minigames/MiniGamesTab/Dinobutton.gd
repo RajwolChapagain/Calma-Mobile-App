@@ -1,7 +1,7 @@
 extends Button
 
 @onready var scene_container:Node = $"../../../../ActiveScene"
-@export var panel:String = "res://Minigames/MiniGamesTab/MiniGames_UI.tscn"
+@export var panel:String = "res://Minigames/DinoBallGame_fixed/Scenes/Main.tscn"
 
 #Add smooth screen transition later
 func switchScene():

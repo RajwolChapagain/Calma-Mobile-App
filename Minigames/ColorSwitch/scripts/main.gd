@@ -40,8 +40,9 @@ func _spawn():
 func _process(d):
 	if dead:
 		if Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			get_tree().reload_current_scene()
-		return
+			get_parent().add_child(load("res://Minigames/ColorSwitch/Scenes/Main.tscn").instantiate())
+			queue_free()
+		
 	if ball.position.y < cam.position.y:
 		cam.position.y = ball.position.y
 	if cam.position.y - next_y < 800:
