@@ -37,7 +37,12 @@ func _ready():
 	
 	if bought:
 		$CanvasLayer/CenterContainer/ToolTip/VSplitContainer/BuyEqButton.icon = load("res://Shop/Assets/Placeholders/Equip Button PH.png")
+	Utils.connect("theme_switch",change_theme)
+	change_theme(Utils.gui_themes[Utils.savedItems.active_gui])
 #Pressing button only brings up tool tip
+
+func change_theme(t:Theme):
+	theme = t
 
 #Make a script to add to any gui element that I can just attatch when needed
 #The script will just connect a method to change the theme of the element to a signal
