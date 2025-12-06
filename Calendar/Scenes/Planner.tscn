@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwepwyaxde1qb"]
+
+[ext_resource type="Script" uid="uid://cjarti51bwbyg" path="res://ScheduleScene.gd" id="1_qlocw"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qlocw")
+
+[node name="ScheduleText" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 41.0
+offset_bottom = 38.0
+text = "Course
+Intro to Programming	CSC110	A	3	001	01/07/2025	05/02/2025	M W F	9:00 AM	9:50 AM
+"
+
+[node name="ClassList" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 50.0
+offset_right = 39.0
+offset_bottom = 90.0
+
+[node name="DateLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 44.0
+offset_bottom = 24.0
+
+[node name="CoursePopup" type="PopupPanel" parent="."]
+oversampling_override = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CoursePopup"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 96.0
+offset_bottom = 96.0
+
+[node name="PopupTitle" type="Label" parent="CoursePopup/VBoxContainer"]
+layout_mode = 2
+
+[node name="PopupInfo" type="RichTextLabel" parent="CoursePopup/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[node name="CloseButton" type="Button" parent="CoursePopup/VBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[node name="CurrentTimeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 296.0
+offset_bottom = 23.0
