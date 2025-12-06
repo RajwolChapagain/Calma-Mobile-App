@@ -9,8 +9,10 @@
 [node name="Shop" type="Node2D"]
 
 [node name="ThemeRow" type="ScrollContainer" parent="."]
-offset_right = 180.0
-offset_bottom = 40.0
+offset_left = 2.0
+offset_top = 88.0
+offset_right = 182.0
+offset_bottom = 128.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ThemeRow"]
 layout_mode = 2
@@ -28,9 +30,10 @@ item_name = "Placeholder Theme"
 desc = "Equip a placeholder"
 
 [node name="ThemeRow2" type="ScrollContainer" parent="."]
-offset_top = 49.0
-offset_right = 180.0
-offset_bottom = 89.0
+offset_left = 2.0
+offset_top = 188.0
+offset_right = 182.0
+offset_bottom = 228.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ThemeRow2"]
 layout_mode = 2
@@ -75,3 +78,10 @@ bought = true
 item_name = "Bear Avatar"
 equiped = true
 desc = "Bear Avatar"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 62.0
+offset_top = 1.0
+offset_right = 112.0
+offset_bottom = 41.0
+text = "SHOP"
