@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://124g63trylrw"]
+[gd_scene load_steps=6 format=3 uid="uid://bd135ftsf43qd"]
 
 [ext_resource type="Script" uid="uid://c85jauuwennna" path="res://Global/Scripts/settings_panel.gd" id="1_5xc6n"]
 [ext_resource type="Texture2D" uid="uid://c5g5yp4pgvg6l" path="res://Minigames/MiniGamesTab/Sprites/coin.png" id="2_4q6vo"]
 [ext_resource type="Texture2D" uid="uid://cnb11istk6uu4" path="res://Shop/ProfileSprites/Bear.png" id="3_k3o6s"]
-[ext_resource type="Script" uid="uid://dm0t5go467vet" path="res://Global/Scripts/avatar_connection.gd" id="4_4q6vo"]
+[ext_resource type="Script" uid="uid://xij7u0xkrlxn" path="res://Global/Scripts/coin_connection.gd" id="3_yoica"]
+[ext_resource type="Script" path="res://Global/Scripts/avatar_connection.gd" id="4_4q6vo"]
 
 [node name="SettingsPanel" type="Control"]
 layout_mode = 3
@@ -38,6 +39,7 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="TopBar/HBoxContainer"]
 layout_mode = 2
 text = "0"
+script = ExtResource("3_yoica")
 
 [node name="Control" type="Control" parent="TopBar"]
 layout_mode = 2
