@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="SavedItems" load_steps=2 format=3 uid="uid://csjpxba18vpi4"]
+
+[ext_resource type="Script" uid="uid://dgvpfquqnwqk" path="res://Global/Scripts/SavedItems.gd" id="1_jjfoh"]
+
+[resource]
+script = ExtResource("1_jjfoh")

@@ -1,9 +1,23 @@
 extends Node
 
-class SavedItems:
-	extends Resource
-	@export var coins: int = 5
-	@export var bought_guis: Array = []
-	@export var bought_avatars: Array = []
-	@export var active_gui: int = 0
-	@export var active_avatar: int = 0
+var gui_themes: Array = [load("res://Shop/Assets/Themes/PlaceHolderTestTheme.tres")]
+const SAVE_PATH:String = "res://Global/TempSaves/Utils.tres"
+
+var savedItems:SavedItems = SavedItems.new()
+signal theme_switch(theme:Theme)
+
+func _ready():
+	if FileAccess.file_exists(SAVE_PATH):
+		savedItems = ResourceLoader.load(SAVE_PATH)
+	
+
+func change_theme(theme: int):
+	if theme < gui_themes.size():
+		savedItems.active_gui = theme
+		theme_switch.emit(gui_themes[savedItems.active_gui])
+
+func save_utils():
+	ResourceSaver.save(savedItems,SAVE_PATH)
+
+func add_coins(num: int):
+	savedItems.coins += num

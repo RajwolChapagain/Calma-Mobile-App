@@ -3,6 +3,13 @@ extends Button
 @onready var scene_container:Node = $"../../../../ActiveScene"
 @export var panel:String = "res://Minigames/MiniGamesTab/MiniGames_UI.tscn"
 
+func _ready():
+	Utils.connect("theme_switch",change_theme)
+
+func change_theme(t:Theme):
+	theme = t
+
+
 #Add smooth screen transition later
 func switchScene():
 	#Clear Children in container
