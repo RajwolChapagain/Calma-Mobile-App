@@ -7,6 +7,7 @@
 script = ExtResource("1_4dawf")
 
 [node name="Dino" parent="." instance=ExtResource("2_6a2n5")]
+position = Vector2(47, 270)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

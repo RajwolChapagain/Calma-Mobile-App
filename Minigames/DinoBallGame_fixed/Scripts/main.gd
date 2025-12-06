@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 func _spawn_cactus() -> void:
 	print("SPAWNING CACTUS")
 	var cactus = cactus_scene.instantiate()
-	var ground_y := 260.0
+	var ground_y := 240.0
 	cactus.position = Vector2(600.0, ground_y)
 	cactus.move_speed = scroll_speed
 	add_child(cactus)

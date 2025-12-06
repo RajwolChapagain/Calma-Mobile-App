@@ -12,9 +12,6 @@ func _physics_process(delta: float) -> void:
 
 	queue_redraw()
 
-func _draw():
-	draw_rect(Rect2(Vector2(-50,-50), Vector2(100,100)), Color(0,1,0))
-
 
 func _on_body_entered(body: Node) -> void:
 	if body.has_method("die"):

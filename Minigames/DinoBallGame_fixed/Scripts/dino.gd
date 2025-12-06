@@ -9,7 +9,6 @@ var frozen := false
 signal died
 
 func _ready() -> void:
-	position = Vector2(0, 0)
 	visible = true
 	
 
@@ -33,8 +32,6 @@ func _physics_process(delta: float) -> void:
 func _is_on_ground() -> bool:
 	return abs(position.y - GROUND_Y) < 0.5
 
-func _draw() -> void:
-	draw_rect(Rect2(Vector2(-50, -50), Vector2(100, 100)), Color(1, 0, 0))
 
 
 func die() -> void:
