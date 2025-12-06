@@ -48,8 +48,11 @@ func change_theme(t:Theme):
 #The script will just connect a method to change the theme of the element to a signal
 #from either Utils or shop (Probably Utils)
 
+func hide_tool():
+	$CanvasLayer.visible = false
+
 func _on_button_down():
-	#emit some signal for button down to hide the other tool tips
+	get_tree().call_group("ShopItems","hide_tool")
 	$CanvasLayer.visible = true
 
 func _on_close_button_button_down():
