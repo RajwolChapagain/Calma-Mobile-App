@@ -37,7 +37,7 @@ theme = ExtResource("1_ox1g1")
 text = "Planner"
 expand_icon = true
 script = ExtResource("2_3qwl3")
-panel = "res://Calendar/Scenes/planner.tscn"
+panel = "res://Calendar/Scenes/Planner.tscn"
 
 [node name="PanelButtonShop" type="Button" parent="HBoxContainer"]
 layout_mode = 2

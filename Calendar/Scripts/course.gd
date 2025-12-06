@@ -8,7 +8,7 @@ extends Resource
 @export var start_time: String
 @export var end_time: String
 
-func _init(title_: String, start_date_: String, end_date_: String, weekdays_: Array[Time.Weekday], start_time_: String, end_time_: String) -> void:
+func _init(title_: String = '', start_date_: String = '', end_date_: String = '', weekdays_: Array[Time.Weekday] = [], start_time_: String = '', end_time_: String = '') -> void:
 	title = title_
 	start_date = start_date_
 	end_date = end_date_

@@ -14,7 +14,17 @@ func _ready():
 	var raw = schedule_text.text
 	schedule_text.visible = false
 
-	var courses = ScheduleParser.get_courses(raw)
+	var saved_courses_dir = 'user://%s' % ScheduleImporter.SAVE_DIRECTORY_NAME
+	var courses = []
+	
+	var save_dir =  'user://' + ScheduleImporter.SAVE_DIRECTORY_NAME
+	
+	for item in ResourceLoader.list_directory(save_dir):
+		var resource = ResourceLoader.load(save_dir + '/' + item)
+		courses.append(resource)
+		
+	print(courses)
+	
 	# Fix weekday indexing mismatch from parser
 	for c in courses:
 		for i in range(c.weekdays.size()):
@@ -31,13 +41,13 @@ func _ready():
 
 
 	var names = {
-	0: "Monday",
-	1: "Tuesday",
-	2: "Wednesday",
-	3: "Thursday",
-	4: "Friday",
-	5: "Saturday",
-	6: "Sunday"
+	0: "Sunday",
+	1: "Monday",
+	2: "Tuesday",
+	3: "Wednesday",
+	4: "Thursday",
+	5: "Friday",
+	6: "Saturday"
 }
 	date_label.text = "Classes for " + names[today]
 

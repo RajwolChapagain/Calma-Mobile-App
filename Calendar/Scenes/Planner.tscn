@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dwepwyaxde1qb"]
 
-[ext_resource type="Script" uid="uid://cjarti51bwbyg" path="res://ScheduleScene.gd" id="1_qlocw"]
+[ext_resource type="Script" uid="uid://mjx210peysve" path="res://Calendar/Scripts/ScheduleScene.gd" id="1_qlocw"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
