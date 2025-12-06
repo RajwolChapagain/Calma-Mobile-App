@@ -3,8 +3,6 @@ extends Control
 const SAVE_DIRECTORY_NAME: String = 'SavedCourses'
 const SAVE_PATH:String = "res://Global/TempSaves/Utils.tres"
 
-func _ready() -> void:
-	%SettingsButton.icon = Utils.avatars[Utils.savedItems.active_avatar]
 	
 func _on_settings_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
