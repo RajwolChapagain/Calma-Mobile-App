@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b52sg84qmmqh6" path="res://Minigames/MiniGamesTab/Sprites/b6491a79-3d09-42da-b3ec-36f25ce7c7c0.png" id="1_67d1g"]
 [ext_resource type="Texture2D" uid="uid://c5g5yp4pgvg6l" path="res://Minigames/MiniGamesTab/Sprites/coin.png" id="1_knhuk"]
 [ext_resource type="Texture2D" uid="uid://rnndmu8tpqot" path="res://Minigames/MiniGamesTab/Sprites/a887ab2f-728a-4c36-8011-3d67eed93300.png" id="1_q67uq"]
+[ext_resource type="Script" uid="uid://y3kwnlnc8ic1" path="res://Global/Scripts/avatar_connection.gd" id="1_vxpoy"]
 [ext_resource type="Script" uid="uid://bboxjhr66tn84" path="res://Minigames/MiniGamesTab/ColorSwitchbutton.gd" id="2_flxow"]
 [ext_resource type="Texture2D" uid="uid://bh0hpsykv8osp" path="res://Minigames/MiniGamesTab/Sprites/defaaef3-d976-4770-81f7-71ecc76f1b7a.png" id="2_pn44r"]
 [ext_resource type="Texture2D" uid="uid://cnb11istk6uu4" path="res://Shop/ProfileSprites/Bear.png" id="3_3y54o"]
