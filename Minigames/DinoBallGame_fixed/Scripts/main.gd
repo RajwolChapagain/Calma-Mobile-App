@@ -30,8 +30,8 @@ func _physics_process(delta: float) -> void:
 		spawn_interval = max(min_spawn_interval, spawn_interval - 0.03)
 		spawn_timer = spawn_interval
 
-	score += delta * 10
 	score_label.text = str(int(score))
+
 
 func _spawn_cactus() -> void:
 	print("SPAWNING CACTUS")

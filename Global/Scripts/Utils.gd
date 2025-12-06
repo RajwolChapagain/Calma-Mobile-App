@@ -1,6 +1,6 @@
 extends Node
 
-var gui_themes: Array = [load("res://Shop/Assets/Themes/PlaceHolderTestTheme.tres")]
+var gui_themes: Array = [load("res://Shop/Assets/Themes/DefaultTheme.tres"), load("res://Shop/Assets/Themes/PlaceHolderTestTheme.tres")]
 const SAVE_PATH:String = "res://Global/TempSaves/Utils.tres"
 
 var savedItems:SavedItems = SavedItems.new()
@@ -10,10 +10,13 @@ func _ready():
 	if FileAccess.file_exists(SAVE_PATH):
 		savedItems = ResourceLoader.load(SAVE_PATH)
 	
+	change_theme(savedItems.active_gui)
+	
 
 func change_theme(theme: int):
 	if theme < gui_themes.size():
 		savedItems.active_gui = theme
+		save_utils()
 		theme_switch.emit(gui_themes[savedItems.active_gui])
 
 func save_utils():
@@ -21,3 +24,4 @@ func save_utils():
 
 func add_coins(num: int):
 	savedItems.coins += num
+	save_utils()
