@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dndcbb1dk4ru6"]
+[gd_scene load_steps=8 format=3 uid="uid://dndcbb1dk4ru6"]
 
 [ext_resource type="Texture2D" uid="uid://b52sg84qmmqh6" path="res://Minigames/MiniGamesTab/Sprites/b6491a79-3d09-42da-b3ec-36f25ce7c7c0.png" id="1_67d1g"]
+[ext_resource type="Texture2D" uid="uid://c5g5yp4pgvg6l" path="res://Minigames/MiniGamesTab/Sprites/coin.png" id="1_knhuk"]
 [ext_resource type="Texture2D" uid="uid://rnndmu8tpqot" path="res://Minigames/MiniGamesTab/Sprites/a887ab2f-728a-4c36-8011-3d67eed93300.png" id="1_q67uq"]
 [ext_resource type="Script" uid="uid://y3kwnlnc8ic1" path="res://Global/Scripts/avatar_connection.gd" id="1_vxpoy"]
 [ext_resource type="Script" uid="uid://bboxjhr66tn84" path="res://Minigames/MiniGamesTab/ColorSwitchbutton.gd" id="2_flxow"]
 [ext_resource type="Texture2D" uid="uid://bh0hpsykv8osp" path="res://Minigames/MiniGamesTab/Sprites/defaaef3-d976-4770-81f7-71ecc76f1b7a.png" id="2_pn44r"]
+[ext_resource type="Texture2D" uid="uid://cnb11istk6uu4" path="res://Shop/ProfileSprites/Bear.png" id="3_3y54o"]
 [ext_resource type="Script" uid="uid://caaq16ps53h54" path="res://Minigames/MiniGamesTab/Dinobutton.gd" id="4_q67uq"]
 
 [node name="MiniGamesUI" type="Control"]
@@ -26,29 +28,39 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
 offset_top = 2.0
+offset_right = 1.0
 offset_bottom = -367.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="TopBanner"]
-custom_minimum_size = Vector2(32, 32)
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBanner"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-script = ExtResource("1_vxpoy")
 
-[node name="Button3" type="Button" parent="TopBanner"]
-custom_minimum_size = Vector2(100, 0)
+[node name="TextureRect" type="TextureRect" parent="TopBanner/HBoxContainer"]
 layout_mode = 2
-icon = ExtResource("1_q67uq")
+texture = ExtResource("1_knhuk")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="TopBanner/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="TopBanner"]
+layout_mode = 2
+texture = ExtResource("1_q67uq")
+expand_mode = 3
+
+[node name="Profile" type="Button" parent="TopBanner"]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("3_3y54o")
+flat = true
+autowrap_trim_flags = 0
 icon_alignment = 1
 expand_icon = true
-
-[node name="Button2" type="Button" parent="TopBanner"]
-layout_mode = 2
-text = "🪙"
 
 [node name="ColorSwitchButton" type="HBoxContainer" parent="."]
 layout_mode = 1

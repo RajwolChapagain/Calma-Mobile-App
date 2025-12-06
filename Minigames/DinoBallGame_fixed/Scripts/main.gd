@@ -20,9 +20,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if is_game_over:
-		if Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			_restart()
-		return
+		_restart()
+	return
 
 	spawn_timer -= delta
 	if spawn_timer <= 0.0:
@@ -31,7 +30,6 @@ func _physics_process(delta: float) -> void:
 		spawn_timer = spawn_interval
 
 	score_label.text = str(int(score))
-
 
 func _spawn_cactus() -> void:
 	print("SPAWNING CACTUS")
@@ -44,7 +42,19 @@ func _spawn_cactus() -> void:
 func _on_dino_died() -> void:
 	is_game_over = true
 	dino.frozen = true
+
+	# Game Over text
+	game_over_label.text = "Game Over"
+	game_over_label.add_theme_font_size_override("font_size", 24)
+	game_over_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+
+	# Center horizontally
+	var viewport_width := get_viewport_rect().size.x
+	game_over_label.position.x = viewport_width / 2.0 - game_over_label.size.x / 2.0
+
 	game_over_label.visible = true
 
 func _restart() -> void:
-	get_tree().reload_current_scene()
+	if Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			get_parent().add_child(load("res://Minigames/DinoBallGame_fixed/Scenes/Main.tscn").instantiate())
+			queue_free()
