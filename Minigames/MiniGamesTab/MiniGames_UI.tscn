@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dndcbb1dk4ru6"]
+[gd_scene load_steps=7 format=3 uid="uid://dndcbb1dk4ru6"]
 
 [ext_resource type="Texture2D" uid="uid://b52sg84qmmqh6" path="res://Minigames/MiniGamesTab/Sprites/b6491a79-3d09-42da-b3ec-36f25ce7c7c0.png" id="1_67d1g"]
 [ext_resource type="Texture2D" uid="uid://rnndmu8tpqot" path="res://Minigames/MiniGamesTab/Sprites/a887ab2f-728a-4c36-8011-3d67eed93300.png" id="1_q67uq"]
+[ext_resource type="Script" uid="uid://y3kwnlnc8ic1" path="res://Global/Scripts/avatar_connection.gd" id="1_vxpoy"]
 [ext_resource type="Script" uid="uid://bboxjhr66tn84" path="res://Minigames/MiniGamesTab/ColorSwitchbutton.gd" id="2_flxow"]
 [ext_resource type="Texture2D" uid="uid://bh0hpsykv8osp" path="res://Minigames/MiniGamesTab/Sprites/defaaef3-d976-4770-81f7-71ecc76f1b7a.png" id="2_pn44r"]
 [ext_resource type="Script" uid="uid://caaq16ps53h54" path="res://Minigames/MiniGamesTab/Dinobutton.gd" id="4_q67uq"]
@@ -32,8 +33,11 @@ grow_vertical = 2
 alignment = 1
 
 [node name="Button" type="Button" parent="TopBanner"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-text = "⚙️"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_vxpoy")
 
 [node name="Button3" type="Button" parent="TopBanner"]
 custom_minimum_size = Vector2(100, 0)

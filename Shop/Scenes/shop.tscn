@@ -1,24 +1,77 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3b8tc7g2ubuk"]
+[gd_scene load_steps=6 format=3 uid="uid://c3b8tc7g2ubuk"]
 
 [ext_resource type="PackedScene" uid="uid://da4xp8j30hdd2" path="res://Shop/Scenes/shop_item.tscn" id="1_71320"]
+[ext_resource type="Texture2D" uid="uid://cnb11istk6uu4" path="res://Shop/ProfileSprites/Bear.png" id="2_l67rk"]
+[ext_resource type="Texture2D" uid="uid://cxgxdeb8mihwx" path="res://Shop/ProfileSprites/BullDog.png" id="3_rwlp8"]
+[ext_resource type="Texture2D" uid="uid://cx80hi0wl14ce" path="res://Shop/ProfileSprites/OWL.png" id="4_jwtvb"]
+[ext_resource type="Texture2D" uid="uid://b50nma85q05vm" path="res://Shop/ProfileSprites/YellowJacket.png" id="5_yedjq"]
 
 [node name="Shop" type="Node2D"]
 
-[node name="AvatarRow1" type="ScrollContainer" parent="."]
+[node name="ThemeRow" type="ScrollContainer" parent="."]
 offset_right = 180.0
 offset_bottom = 40.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AvatarRow1"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ThemeRow"]
 layout_mode = 2
 
-[node name="ShopItem" parent="AvatarRow1/HBoxContainer" instance=ExtResource("1_71320")]
+[node name="ShopItem" parent="ThemeRow/HBoxContainer" instance=ExtResource("1_71320")]
 layout_mode = 2
 item_name = "Default Theme"
 desc = "Equip the default theme"
 
-[node name="ShopItem2" parent="AvatarRow1/HBoxContainer" instance=ExtResource("1_71320")]
+[node name="ShopItem2" parent="ThemeRow/HBoxContainer" instance=ExtResource("1_71320")]
 modulate = Color(1, 0.28627452, 1, 1)
 layout_mode = 2
 linked_item_index = 1
 item_name = "Placeholder Theme"
 desc = "Equip a placeholder"
+
+[node name="ThemeRow2" type="ScrollContainer" parent="."]
+offset_top = 49.0
+offset_right = 180.0
+offset_bottom = 89.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ThemeRow2"]
+layout_mode = 2
+
+[node name="ShopItem" parent="ThemeRow2/HBoxContainer" instance=ExtResource("1_71320")]
+layout_mode = 2
+icon = ExtResource("2_l67rk")
+item_type = 1
+shop_icon = ExtResource("2_l67rk")
+bought = true
+item_name = "Bear Avatar"
+equiped = true
+desc = "Bear Avatar"
+
+[node name="ShopItem2" parent="ThemeRow2/HBoxContainer" instance=ExtResource("1_71320")]
+layout_mode = 2
+icon = ExtResource("3_rwlp8")
+linked_item_index = 1
+item_type = 1
+shop_icon = ExtResource("3_rwlp8")
+item_name = "Bull Dog Avatar"
+desc = "Bull Dog Avatar"
+
+[node name="ShopItem3" parent="ThemeRow2/HBoxContainer" instance=ExtResource("1_71320")]
+layout_mode = 2
+icon = ExtResource("4_jwtvb")
+linked_item_index = 2
+item_type = 1
+shop_icon = ExtResource("4_jwtvb")
+bought = true
+item_name = "Owl Avatar"
+equiped = true
+desc = "Owl Avatar"
+
+[node name="ShopItem4" parent="ThemeRow2/HBoxContainer" instance=ExtResource("1_71320")]
+layout_mode = 2
+icon = ExtResource("5_yedjq")
+linked_item_index = 3
+item_type = 1
+shop_icon = ExtResource("5_yedjq")
+bought = true
+item_name = "Bear Avatar"
+equiped = true
+desc = "Bear Avatar"
