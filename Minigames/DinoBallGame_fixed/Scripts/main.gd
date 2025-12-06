@@ -18,11 +18,14 @@ func _ready() -> void:
 	dino.died.connect(_on_dino_died)
 	game_over_label.visible = false
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
+	# EXACTLY like ColorSwitch
 	if is_game_over:
-		_restart()
-	return
-
+		if Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			_restart()
+		return
+	
+	# Move cactus logic
 	spawn_timer -= delta
 	if spawn_timer <= 0.0:
 		_spawn_cactus()
@@ -32,7 +35,6 @@ func _physics_process(delta: float) -> void:
 	score_label.text = str(int(score))
 
 func _spawn_cactus() -> void:
-	print("SPAWNING CACTUS")
 	var cactus = cactus_scene.instantiate()
 	var ground_y := 240.0
 	cactus.position = Vector2(600.0, ground_y)
@@ -43,7 +45,7 @@ func _on_dino_died() -> void:
 	is_game_over = true
 	dino.frozen = true
 
-	# Game Over text
+	# Game Over UI
 	game_over_label.text = "Game Over"
 	game_over_label.add_theme_font_size_override("font_size", 24)
 	game_over_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -55,6 +57,8 @@ func _on_dino_died() -> void:
 	game_over_label.visible = true
 
 func _restart() -> void:
-	if Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			get_parent().add_child(load("res://Minigames/DinoBallGame_fixed/Scenes/Main.tscn").instantiate())
-			queue_free()
+	# EXACT restart behavior from your ColorSwitch game
+	var parent = get_parent()
+	var new_game = load("res://Minigames/DinoBallGame_fixed/Scenes/Main.tscn").instantiate()
+	parent.add_child(new_game)
+	queue_free()
