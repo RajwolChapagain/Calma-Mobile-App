@@ -66,6 +66,5 @@ func _on_buy_eq_button_button_down() -> void:
 		if item_type == item_types.THEME:
 			Utils.change_theme(linked_item_index)
 		elif item_type == item_types.AVATAR:
-			#Utils.change_theme(linked_item_index)
-			pass
+			Utils.change_avatar(linked_item_index)
 			
