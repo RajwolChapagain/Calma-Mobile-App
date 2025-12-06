@@ -13,3 +13,12 @@ layout_mode = 2
 
 [node name="ShopItem" parent="AvatarRow1/HBoxContainer" instance=ExtResource("1_71320")]
 layout_mode = 2
+item_name = "Default Theme"
+desc = "Equip the default theme"
+
+[node name="ShopItem2" parent="AvatarRow1/HBoxContainer" instance=ExtResource("1_71320")]
+modulate = Color(1, 0.28627452, 1, 1)
+layout_mode = 2
+linked_item_index = 1
+item_name = "Placeholder Theme"
+desc = "Equip a placeholder"

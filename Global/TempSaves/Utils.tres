@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="SavedItems" load_steps=2 format=3 uid="uid://csjpxba18vpi4"]
+[gd_resource type="Resource" script_class="SavedItems" load_steps=2 format=3 uid="uid://o6d02vlmankw"]
 
 [ext_resource type="Script" uid="uid://dgvpfquqnwqk" path="res://Global/Scripts/SavedItems.gd" id="1_jjfoh"]
 
 [resource]
 script = ExtResource("1_jjfoh")
+coins = 4
