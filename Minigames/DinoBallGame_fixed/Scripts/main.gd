@@ -20,9 +20,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if is_game_over:
-		if Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			_restart()
-		return
+		_restart()
+	return
 
 	spawn_timer -= delta
 	if spawn_timer <= 0.0:
@@ -56,4 +55,6 @@ func _on_dino_died() -> void:
 	game_over_label.visible = true
 
 func _restart() -> void:
-	get_tree().change_scene_to_file("res://Minigames/DinoBallGame_fixed/Scenes/Main.tscn")
+	if Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			get_parent().add_child(load("res://Minigames/DinoBallGame_fixed/Scenes/Main.tscn").instantiate())
+			queue_free()
