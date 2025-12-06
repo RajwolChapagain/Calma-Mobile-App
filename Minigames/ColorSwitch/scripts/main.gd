@@ -53,6 +53,7 @@ func _process(d):
 func _score():
 	if dead:return
 	score+=1
+	Utils.add_coins(1)
 	_update_score()
 
 func _update_score():

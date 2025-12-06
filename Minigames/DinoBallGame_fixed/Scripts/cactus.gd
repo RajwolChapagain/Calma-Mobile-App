@@ -15,6 +15,7 @@ func _physics_process(delta: float) -> void:
 		if position.x < dino.position.x:
 			counted = true
 			get_parent().score += 1
+			Utils.add_coins(1)
 			print("Score: ", get_parent().score)
 
 	# Remove when off-screen
