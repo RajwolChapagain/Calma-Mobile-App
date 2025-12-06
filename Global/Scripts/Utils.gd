@@ -13,6 +13,7 @@ const SAVE_PATH:String = "user://Utils.tres"
 var savedItems:SavedItems = SavedItems.new()
 signal theme_switch(theme:Theme)
 signal avatar_switch(avatar:Texture2D)
+signal coins_changed(amount: int)
 
 func _ready():
 	if FileAccess.file_exists(SAVE_PATH):
@@ -40,3 +41,4 @@ func save_utils():
 func add_coins(num: int):
 	savedItems.coins += num
 	save_utils()
+	coins_changed.emit(savedItems.coins)
