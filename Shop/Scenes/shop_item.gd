@@ -62,6 +62,11 @@ func _on_buy_eq_button_button_down() -> void:
 	if !bought:
 		if Utils.savedItems.coins >= cost:
 			bought = true
+			if item_type == item_types.THEME:
+				Utils.savedItems.bought_guis[linked_item_index] = 1
+			elif item_type == item_types.AVATAR:
+				Utils.savedItems.bought_avatars[linked_item_index] = 1
+			Utils.save_utils()
 			Utils.deduct_coins(cost)
 			$CanvasLayer/CenterContainer/ToolTip/VSplitContainer/BuyEqButton.icon = load("res://Shop/Assets/Placeholders/Equip Button PH.png")
 	else:
