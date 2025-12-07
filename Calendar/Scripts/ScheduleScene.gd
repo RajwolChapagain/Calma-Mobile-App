@@ -1,6 +1,5 @@
 extends Control
 
-@onready var schedule_text = $ScheduleText
 @onready var class_list = $ClassList
 @onready var date_label = $DateLabel
 @onready var current_time_label = $CurrentTimeLabel
@@ -12,24 +11,23 @@ extends Control
 
 
 func _ready():
-	var raw = schedule_text.text
-	schedule_text.visible = false
-
-	var saved_courses_dir = 'user://%s' % ScheduleImporter.SAVE_DIRECTORY_NAME
 	var courses = []
 	var save_dir = 'user://' + ScheduleImporter.SAVE_DIRECTORY_NAME
 
 	for item in ResourceLoader.list_directory(save_dir):
 		var resource = ResourceLoader.load(save_dir + '/' + item)
 		courses.append(resource)
-
+	
+	if courses.is_empty():
+		%WarningLabel.visible = true
+		
 	for c in courses:
-		for i in range(c.weekdays.size()):
-			c.weekdays[i] = c.weekdays[i] - 1
+		print(c)
 
-	var today = Time.get_datetime_dict_from_system().weekday
-
-	var names = {
+	#var today = Time.get_datetime_dict_from_system().weekday
+	var today = 1
+	
+	var weekday_index_to_string = {
 		0: "Sunday",
 		1: "Monday",
 		2: "Tuesday",
@@ -38,17 +36,17 @@ func _ready():
 		5: "Friday",
 		6: "Saturday"
 	}
-	date_label.text = "Classes for " + names[today]
+	date_label.text = "Classes for " + weekday_index_to_string[today]
 
 	for child in class_list.get_children():
 		child.queue_free()
 
-	var found_any = false
+	for c: Course in courses:
+		# Ignore courses that have yet to begin or have already ended
+		if c.get_start_date_string_in_iso_format() > Time.get_date_string_from_system() or Time.get_date_string_from_system() > c.get_end_date_string_in_iso_format():
+			continue
 
-	for c in courses:
 		if today in c.weekdays:
-			found_any = true
-
 			var row := HBoxContainer.new()
 
 			var cb := CheckBox.new()
@@ -77,7 +75,7 @@ func _ready():
 
 			class_list.add_child(row)
 
-	if not found_any:
+	if class_list.get_child_count()  == 0:
 		var label := Label.new()
 		label.text = "No Classes Today"
 		label.add_theme_color_override("font_color", Color(1, 0.5, 0.5))

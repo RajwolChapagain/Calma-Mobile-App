@@ -11,16 +11,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qlocw")
 
-[node name="ScheduleText" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -2.0
-offset_right = 41.0
-offset_bottom = 38.0
-text = "Course
-Intro to Programming	CSC110	A	3	001	01/07/2025	05/02/2025	M W F	9:00 AM	9:50 AM
-"
-
 [node name="ClassList" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = -1.0
@@ -62,3 +52,22 @@ layout_mode = 0
 offset_left = 256.0
 offset_right = 296.0
 offset_bottom = 23.0
+
+[node name="WarningLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -76.5
+offset_right = 89.0
+offset_bottom = 76.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "No courses currently imported.
+Press the avatar icon on the top right to import your course schedule."
+autowrap_mode = 2
