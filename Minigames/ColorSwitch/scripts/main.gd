@@ -32,7 +32,7 @@ func _spawn():
 	c.position=w.position+Vector2(0,220)
 	add_child(c)
 	var z=zone_scene.instantiate()
-	z.position=w.position+Vector2(0,260)
+	z.position=w.position+Vector2(0,-260)
 	z.scored.connect(_score)
 	add_child(z)
 	next_y-=spacing
