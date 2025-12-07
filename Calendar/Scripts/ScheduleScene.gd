@@ -1,18 +1,21 @@
+# Author: Dominic Oregon
+# Co-author: Rajwol Chapagain
+
 extends Control
 
-@onready var class_list = $ClassList
-@onready var date_label = $DateLabel
-@onready var current_time_label = $CurrentTimeLabel
+@export var COURSE_ROW_SCENE: PackedScene
 
-@onready var popup = $CoursePopup
-@onready var popup_title = $CoursePopup/VBoxContainer/PopupTitle
-@onready var popup_info = $CoursePopup/VBoxContainer/PopupInfo
-@onready var popup_close = $CoursePopup/VBoxContainer/CloseButton
+@onready var class_list = %ClassList
+@onready var date_label = %DateLabel
 
+const ATTENDED_CLASSES_DIR: String = 'user://AttendedClasses'
 
 func _ready():
+	if not DirAccess.dir_exists_absolute(ATTENDED_CLASSES_DIR):
+		DirAccess.make_dir_absolute(ATTENDED_CLASSES_DIR)
+		
 	var courses = []
-	var save_dir = 'user://' + ScheduleImporter.SAVE_DIRECTORY_NAME
+	var save_dir = 'user://' + SettingsPanel.SAVE_DIRECTORY_NAME
 
 	for item in ResourceLoader.list_directory(save_dir):
 		var resource = ResourceLoader.load(save_dir + '/' + item)
@@ -20,12 +23,11 @@ func _ready():
 	
 	if courses.is_empty():
 		%WarningLabel.visible = true
-		
-	for c in courses:
-		print(c)
+		return
 
-	#var today = Time.get_datetime_dict_from_system().weekday
-	var today = 1
+	var today = Time.get_datetime_dict_from_system().weekday
+	# Modify today as follows for testing:
+	#var today = Time.WEEKDAY_TUESDAY
 	
 	var weekday_index_to_string = {
 		0: "Sunday",
@@ -41,92 +43,37 @@ func _ready():
 	for child in class_list.get_children():
 		child.queue_free()
 
-	for c: Course in courses:
+	var courses_today: Array[Course] = []
+	
+	for course: Course in courses:
 		# Ignore courses that have yet to begin or have already ended
-		if c.get_start_date_string_in_iso_format() > Time.get_date_string_from_system() or Time.get_date_string_from_system() > c.get_end_date_string_in_iso_format():
+		if course.get_start_date_string_in_iso_format() > Time.get_date_string_from_system() or Time.get_date_string_from_system() > course.get_end_date_string_in_iso_format():
 			continue
+		
+		if today in course.weekdays:
+			courses_today.append(course)
 
-		if today in c.weekdays:
-			var row := HBoxContainer.new()
-
-			var cb := CheckBox.new()
-			cb.text = ""
-
-			var weekday_key := str(today)
-			var unique_key := "user://checked_%s_%s.save" % [c.title, weekday_key]
-
-			if FileAccess.file_exists(unique_key):
-				var f = FileAccess.open(unique_key, FileAccess.READ)
-				var stored = f.get_var()
-				f.close()
-				if stored:
-					cb.button_pressed = true
-					cb.disabled = true
-
-			cb.pressed.connect(_on_checkbox_pressed.bind(cb, unique_key))
-			row.add_child(cb)
-
-			var btn := Button.new()
-			btn.text = c.title
-			btn.focus_mode = Control.FOCUS_NONE
-			btn.set_meta("course", c)
-			btn.pressed.connect(_on_course_clicked.bind(btn))
-			row.add_child(btn)
-
-			class_list.add_child(row)
-
-	if class_list.get_child_count()  == 0:
-		var label := Label.new()
-		label.text = "No Classes Today"
-		label.add_theme_color_override("font_color", Color(1, 0.5, 0.5))
-		label.add_theme_font_size_override("font_size", 22)
-		class_list.add_child(label)
-
-	popup_close.pressed.connect(func(): popup.hide())
+	courses_today.sort_custom(func (course_a: Course, course_b: Course): return course_a.start_time < course_b.start_time)
+	
+	for course: Course in courses_today:
+		var course_row: CourseRow = COURSE_ROW_SCENE.instantiate()
+		# Sample path: user://AttendedClasses/COM 420 2025-12-07.save
+		var save_path: String = "%s/%s %s.save" % [ATTENDED_CLASSES_DIR, course.title, Time.get_date_string_from_system()]
+		var save_file_exists: bool = FileAccess.file_exists(save_path)
+		course_row.initialize(course.title, save_file_exists)
+		
+		if not save_file_exists:
+			course_row.checked.connect(_on_checkbox_pressed.bind(save_path))
+			
+		class_list.add_child(course_row)
 
 
-func _on_checkbox_pressed(cb: CheckBox, key: String):
-	cb.button_pressed = true
-	cb.disabled = true
-	var f = FileAccess.open(key, FileAccess.WRITE)
+	if courses_today.is_empty():
+		%WarningLabel.text = "No Classes Today 🥳"
+		%WarningLabel.visible = true
+
+func _on_checkbox_pressed(save_path: String):
+	var f = FileAccess.open(save_path, FileAccess.WRITE)
 	f.store_var(true)
 	f.close()
-
-
-func readable_weekdays(weekdays):
-	var map = {
-		Time.Weekday.WEEKDAY_MONDAY: "Mon",
-		Time.Weekday.WEEKDAY_TUESDAY: "Tue",
-		Time.Weekday.WEEKDAY_WEDNESDAY: "Wed",
-		Time.Weekday.WEEKDAY_THURSDAY: "Thu",
-		Time.Weekday.WEEKDAY_FRIDAY: "Fri"
-	}
-	var list = []
-	for w in weekdays:
-		if map.has(w):
-			list.append(map[w])
-	return " / ".join(list)
-
-
-func _on_course_clicked(button):
-	var c = button.get_meta("course")
-	var days = readable_weekdays(c.weekdays)
-
-	popup_title.text = c.title
-
-	popup_info.text = """
-[b]Days:[/b]        %s
-[b]Time:[/b]        %s – %s
-
-[b]Start Date:[/b]  %s
-[b]End Date:[/b]    %s
-""" % [
-		days,
-		c.start_time,
-		c.end_time,
-		c.start_date,
-		c.end_date
-	]
-
-	popup.popup_centered()
-	popup.show()
+	Utils.add_coins(1)

@@ -1,3 +1,5 @@
+# Author: Rajwol Chapagain
+
 class_name Course
 extends Resource
 

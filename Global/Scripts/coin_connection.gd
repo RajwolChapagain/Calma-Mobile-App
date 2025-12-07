@@ -1,3 +1,5 @@
+# Author: Rajwol Chapagain
+
 extends Label
 
 func _ready():

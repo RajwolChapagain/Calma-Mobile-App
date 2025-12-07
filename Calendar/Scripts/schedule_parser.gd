@@ -1,3 +1,5 @@
+# Author: Rajwol Chapagain
+
 class_name ScheduleParser
 
 static func get_courses(schedule_text: String) -> Array[Course]:
@@ -55,6 +57,7 @@ static func _get_weekday_from_char(c: String) -> Time.Weekday:
 		return Time.WEEKDAY_SATURDAY
 
 # Precondition: time is in the format HH:MM AM/PM
+# Postcondition: Returns time in 24-hr format: HH:MM
 static func _get_24_hr_time_format(time: String) -> String:
 	time = time.strip_edges()
 	var am_or_pm = time.substr(len(time) - 2, 2)
@@ -65,5 +68,9 @@ static func _get_24_hr_time_format(time: String) -> String:
 	
 	if am_or_pm == 'PM':
 		hour += 12
+	
+	var out_string = '%s:%s' % [hour, minute]
+	if hour < 10:
+		out_string = '0' + out_string
 		
-	return '%s:%s' % [hour, minute] 
+	return out_string
