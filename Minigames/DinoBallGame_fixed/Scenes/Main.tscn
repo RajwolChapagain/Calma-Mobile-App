@@ -12,6 +12,7 @@ position = Vector2(47, 270)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+visible = false
 offset_left = 16.0
 offset_top = 16.0
 theme_override_font_sizes/font_size = 24
