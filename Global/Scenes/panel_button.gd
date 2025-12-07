@@ -1,5 +1,8 @@
 extends Button
 
+#AUTHOR: Victor Smith
+#CLASS: CSC 480
+
 @onready var scene_container:Node = $"../../../../ActiveScene"
 @export var panel:String = "res://Minigames/MiniGamesTab/MiniGames_UI.tscn"
 

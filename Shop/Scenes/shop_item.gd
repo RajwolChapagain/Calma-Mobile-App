@@ -1,6 +1,9 @@
 extends Button
 class_name ShopItem
 
+#AUTHOR: Victor Smith
+#CLASS: CSC 480
+
 enum item_types{THEME,AVATAR}
 
 @export var toolTipIcon: TextureRect

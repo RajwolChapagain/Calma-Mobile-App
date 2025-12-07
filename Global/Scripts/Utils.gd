@@ -1,5 +1,8 @@
 extends Node
 
+#AUTHOR: Victor Smith
+#CLASS: CSC 480
+
 var gui_themes: Array = [load("res://Shop/Assets/Themes/DefaultTheme.tres"),
 					load("res://Shop/Assets/Themes/PlaceHolderTestTheme.tres")]
 
