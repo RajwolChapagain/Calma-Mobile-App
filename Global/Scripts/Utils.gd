@@ -42,3 +42,8 @@ func add_coins(num: int):
 	savedItems.coins += num
 	save_utils()
 	coins_changed.emit(savedItems.coins)
+
+func deduct_coins(num: int):
+	savedItems.coins -= num
+	save_utils()
+	coins_changed.emit(savedItems.coins)
