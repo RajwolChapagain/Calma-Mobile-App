@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 	if frozen:
 		return
 
-	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_up") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		if _is_on_ground():
 			velocity_y = JUMP_SPEED
 

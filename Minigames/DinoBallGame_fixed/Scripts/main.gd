@@ -56,4 +56,5 @@ func _on_dino_died() -> void:
 	game_over_label.visible = true
 
 func _restart() -> void:
-	get_tree().change_scene_to_file("res://Minigames/DinoBallGame_fixed/Scenes/Main.tscn")
+	get_parent().add_child(load("res://Minigames/DinoBallGame_fixed/Scenes/Main.tscn").instantiate())
+	queue_free()
