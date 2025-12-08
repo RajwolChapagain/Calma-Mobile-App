@@ -23,8 +23,8 @@ Utils="*res://Global/Scripts/Utils.gd"
 window/size/viewport_width=180
 window/size/viewport_height=400
 window/size/resizable=false
-window/size/window_width_override=720
-window/size/window_height_override=1600
+window/size/window_width_override=360
+window/size/window_height_override=800
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 
